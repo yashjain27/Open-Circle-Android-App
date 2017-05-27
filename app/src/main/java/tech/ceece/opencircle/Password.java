@@ -1,15 +1,22 @@
 package tech.ceece.opencircle;
 
+import java.io.Serializable;
+
 /**
  * Password class. Manages passwords for people.
  *
  * Created by Yash Jain on 5/16/2017.
  */
-public class Password {
+public class Password implements Serializable{
     //Data fields
     private String password;
 
     //Constructor
+
+    /**
+     * Empty constructor
+     */
+    public Password(){}
 
     /**
      * Constructor for the Password class.

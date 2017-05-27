@@ -3,24 +3,32 @@ package tech.ceece.opencircle;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.CheckBox;
-import android.widget.Toast;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class MainActivity extends AppCompatActivity {
     //Data fields
-    private Intent intent;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-//        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
-//        intent.putExtra("checkbox", checkBox.isChecked());
+        setContentView(R.layout.onstart_layout);
+        mAuth = FirebaseAuth.getInstance();
     }
 
-    public void onSignUp(View v){
-        intent = new Intent(this, SignUp.class);
-        startActivity(new Intent(this, SignUp.class));
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        if(currentUser == null) {
+            startActivity(new Intent(this, Login.class));
+            finish();
+        }else {
+            startActivity(new Intent(this, Test.class));
+            finish();
+        }
     }
+
 }

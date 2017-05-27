@@ -20,7 +20,8 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/button2"
-        android:backgroundTint="@color/colorAccent" />
+        android:backgroundTint="@color/colorAccent"
+        android:onClick="onLogin" />
 
     <Button
         android:text="Sign up!"
@@ -46,14 +47,14 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:inputType="textPersonName"
+        android:inputType="textEmailAddress"
         android:ems="10"
         android:layout_above="@+id/button2"
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="53dp"
         android:layout_marginBottom="63dp"
         android:id="@+id/editText7"
-        android:hint="Username:"
+        android:hint="Email:"
         android:textColorHint="?android:attr/colorFocusedHighlight"
         android:backgroundTint="@color/colorAccent"
         android:textColor="@color/colorAccent" />

@@ -1,7 +1,6 @@
 package tech.ceece.opencircle;
 
-import android.widget.Toast;
-
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -9,27 +8,30 @@ import java.util.ArrayList;
  *
  * Created by Yash Jain on 5/16/2017.
  */
-public class Account {
+public class Account implements Serializable {
     //Data fields
     private String userName;
-    private String firstName;
-    private String lastName;
+    private String fullName;
     private String email;
     private String phoneNumber;
     private Password password;
     private ArrayList<Item> items = new ArrayList<>();
     private boolean banned;
-    private boolean admin = false;
+    private boolean admin;
 
     //Constructor
+
+    /**
+     * Empty constructor
+     */
+    public Account(){}
+
     /**
      * Constructor for the Account class.
      * @param userName
      *      a String representing the userName
-     * @param firstName
-     *      a String representing the user's first name
-     * @param lastName
-     *      a String representing the user's last name
+     * @param fullName
+     *      a String representing the user's full name
      * @param email
      *      a String representing the user's email
      * @param phoneNumber
@@ -37,10 +39,9 @@ public class Account {
      * @param password
      *      a Password object containing the password of the Account
      */
-    public Account(String userName, String firstName, String lastName, String email, String phoneNumber, Password password){
+    public Account(String userName, String fullName, String email, String phoneNumber, Password password){
         this.userName = userName;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
@@ -63,18 +64,10 @@ public class Account {
      * @return
      *      a String representation of first name associated with the Account
      */
-    public String getFirstName() {
-        return firstName;
+    public String getFullName() {
+        return fullName;
     }
 
-    /**
-     * Returns the last name associated with this account
-     * @return
-     *      a String representation of last name associated with the Account
-     */
-    public String getLastName() {
-        return lastName;
-    }
 
     /**
      * Returns the email associated with this account
@@ -108,7 +101,7 @@ public class Account {
      * @return
      *      true indicates the Account is banned, and a false indicates that the Account is not
      */
-    public boolean isBanned(){
+    public boolean getBanned(){
         return banned;
     }
 
@@ -117,7 +110,7 @@ public class Account {
      * @return
      *      true indicates that Account is an admin, a false indicates a regular user
      */
-    public boolean getBanned(){
+    public boolean getAdmin(){
        return admin;
     }
 
@@ -142,21 +135,13 @@ public class Account {
 
     /**
      * Sets the new first name associated with the Account
-     * @param firstName
+     * @param fullName
      *      a String representing the first name associated with this account
      */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
-    /**
-     * Sets the new last name associated with the Account
-     * @param lastName
-     *      a String representing the last name associated with this account
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     /**
      * Sets the new email associated with the Account
@@ -226,4 +211,8 @@ public class Account {
     public void addItem(Item item){
         items.add(item);
     }
+
+//    public void setImageView(int id){
+//        imageView.setImageResource(id);
+//    }
 }
