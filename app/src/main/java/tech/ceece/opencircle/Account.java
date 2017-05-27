@@ -1,5 +1,9 @@
 package tech.ceece.opencircle;
 
+import android.widget.Toast;
+
+import java.util.ArrayList;
+
 /**
  * The Account class. Class that handles the creation of new Accounts by people.
  *
@@ -13,9 +17,11 @@ public class Account {
     private String email;
     private String phoneNumber;
     private Password password;
+    private ArrayList<Item> items = new ArrayList<>();
+    private boolean banned;
+    private boolean admin = false;
 
     //Constructor
-
     /**
      * Constructor for the Account class.
      * @param userName
@@ -38,10 +44,11 @@ public class Account {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        banned = false;
+        admin = false;
     }
 
     //Accessors
-
     /**
      * Returns the userName associated with this account
      * @return
@@ -96,8 +103,34 @@ public class Account {
         return password;
     }
 
-    //Mutators
+    /**
+     * Returns the boolean if whether the user is banned or not.
+     * @return
+     *      true indicates the Account is banned, and a false indicates that the Account is not
+     */
+    public boolean isBanned(){
+        return banned;
+    }
 
+    /**
+     * Returns the boolean if whether an account is an admin or not
+     * @return
+     *      true indicates that Account is an admin, a false indicates a regular user
+     */
+    public boolean getBanned(){
+       return admin;
+    }
+
+    /**
+     * Returns the ArrayList of the items the account is selling.
+     * @return
+     *      an ArrayList<Items> of items the account is selling
+     */
+    public ArrayList<Item> getItems(){
+        return items;
+    }
+
+    //Mutators
     /**
      * Sets the new user name associated with the Account
      * @param userName
@@ -150,5 +183,47 @@ public class Account {
      */
     public void setPassword(Password password) {
         this.password = password;
+    }
+
+    /**
+     * Sets the boolean value of whether the Account is banned or not.
+     * @param bool
+     *      a true indicates the Account should be banned, a false indicates to unban.
+     */
+    public void setBanned(Boolean bool){
+        this.banned = bool;
+    }
+
+    /**
+     * Sets the account's privilege if whether the account is an admin or not
+     * @param bool
+     *      a true indicates that the account should be an admin, a false indicates that the
+     *      account loses it's admin privileges
+     *
+     */
+    public void setAdmin(boolean bool){
+        this.admin = bool;
+    }
+
+    /**
+     * Removes an item from the list of items to sell
+     * @param index
+     *      Index of the items to be removed from the list
+     */
+    public void removeItem(int index){
+        try {
+            items.remove(index);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("index out of bounds");
+        }
+    }
+
+    /**
+     * Item to be added to the list
+     * @param item
+     *      the item to be added to the list
+     */
+    public void addItem(Item item){
+        items.add(item);
     }
 }
