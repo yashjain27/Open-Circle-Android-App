@@ -10,22 +10,18 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="tech.ceece.opencircle.Test">
 
-    <Button
-        android:text="LOGOUT"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="108dp"
-        android:id="@+id/button4"
-        android:onClick="onLogout" />
+    <include
+        android:id="@+id/app_bar"
+        layout="@layout/app_bar"/>
 
-    <Button
-        android:text="Delete"
+    <TextView
+        android:text="TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button4"
-        android:layout_alignEnd="@+id/button4"
-        android:id="@+id/button5"
-        android:onClick="onDelete" />
+        android:layout_above="@+id/button5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="110dp"
+        android:id="@+id/textView2" />
+
+
 </RelativeLayout>
