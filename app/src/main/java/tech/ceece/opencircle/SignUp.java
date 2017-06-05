@@ -75,11 +75,10 @@ public class SignUp extends AppCompatActivity {
     public void addToDataBase(String userName, String fullName, String email, String phoneNumber, Password pass){
         try {
             //Create account and try adding to the DataBase
-            Account account = new Account(userName, fullName, email, phoneNumber, pass);
+            Account account = new Account(userName, fullName, email, phoneNumber);
             Toast.makeText(this, "Congratulations! You have successfully signed up!", Toast.LENGTH_SHORT).show();
             Intent intent = new Intent(this, UserActivity.class);
             intent.addFlags(IntentCompat.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra("account", account);
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
             mDatabase.child(user.getUid()).setValue(account);
 

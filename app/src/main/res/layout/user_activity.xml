@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_test"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="tech.ceece.opencircle.UserActivity">
+    tools:context="tech.ceece.opencircle.Test">
 
     <com.google.android.gms.maps.MapView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/mapView" />
 
     <include
         android:id="@+id/app_bar"
-        layout="@layout/app_bar"
-        />
+        layout="@layout/app_bar"/>
+
+    <ImageButton
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="60dp"
+        android:id="@+id/imageButton"
+        android:background="@drawable/oval"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onUserOptions" />
 
 
 </RelativeLayout>

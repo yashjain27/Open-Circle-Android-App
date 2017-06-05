@@ -8,5 +8,7 @@ public class SellingItem extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.selling_layout);
     }
+
 }

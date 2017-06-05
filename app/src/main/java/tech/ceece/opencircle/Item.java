@@ -10,9 +10,16 @@ public class Item {
     //Data fields
     private String itemName;
     private String description;
+    private String condition;
     private double price;
 
     //Constructor
+
+    /**
+     * Empty constructor
+     */
+    public Item(){}
+
     /**
      * Constructor for an Item class
      * @param itemName
@@ -22,9 +29,10 @@ public class Item {
      * @param price
      *      Price of the item
      */
-    public Item(String itemName, String description, double price){
+    public Item(String itemName, String description, String condition, double price){
         this.itemName = itemName;
         this.description = description;
+        this.condition = condition;
         this.price = price;
     }
 
@@ -45,6 +53,15 @@ public class Item {
      */
     public String getDescription(){
         return description;
+    }
+
+    /**
+     * Returns the condition of the item
+     * @return
+     *      a String representing the condition of the item
+     */
+    public String getCondition(){
+        return condition;
     }
 
     /**
@@ -73,6 +90,15 @@ public class Item {
      */
     public void setDescription(String newDescription){
         description = newDescription;
+    }
+
+    /**
+     * Sets the new condition of the item
+     * @param condition
+     *      a String representing the condition of the item
+     */
+    public void setCondition(String condition){
+        this.condition = condition;
     }
 
     /**

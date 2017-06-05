@@ -1,6 +1,5 @@
 package tech.ceece.opencircle;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
@@ -8,14 +7,13 @@ import java.util.ArrayList;
  *
  * Created by Yash Jain on 5/16/2017.
  */
-public class Account implements Serializable {
+public class Account{
     //Data fields
     private String userName;
     private String fullName;
     private String email;
     private String phoneNumber;
-    private Password password;
-    private ArrayList<Item> items = new ArrayList<>();
+    private ArrayList<Item> items;
     private boolean banned;
     private boolean admin;
 
@@ -36,17 +34,15 @@ public class Account implements Serializable {
      *      a String representing the user's email
      * @param phoneNumber
      *      an int indicating the user's phone number
-     * @param password
-     *      a Password object containing the password of the Account
      */
-    public Account(String userName, String fullName, String email, String phoneNumber, Password password){
+    public Account(String userName, String fullName, String email, String phoneNumber){
         this.userName = userName;
         this.fullName = fullName;
         this.email = email;
         this.phoneNumber = phoneNumber;
-        this.password = password;
         banned = false;
         admin = false;
+        items = new ArrayList<>();
     }
 
     //Accessors
@@ -85,15 +81,6 @@ public class Account implements Serializable {
      */
     public String getPhoneNumber() {
         return phoneNumber;
-    }
-
-    /**
-     * Returns the Password object associated with this account
-     * @return
-     *      a Password object that contains the password of the Account
-     */
-    public Password getPassword() {
-        return password;
     }
 
     /**
@@ -159,15 +146,6 @@ public class Account implements Serializable {
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-    }
-
-    /**
-     * Sets the new password associated with the Account
-     * @param password
-     *      a Password object associated with
-     */
-    public void setPassword(Password password) {
-        this.password = password;
     }
 
     /**

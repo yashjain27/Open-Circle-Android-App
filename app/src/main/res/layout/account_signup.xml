@@ -19,7 +19,8 @@
         android:backgroundTint="@color/colorAccent"
         android:foregroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light" />
+        android:textColor="@android:color/holo_red_light"
+        android:text="yasjain" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -33,7 +34,8 @@
         android:foregroundTint="@color/colorAccent"
         android:backgroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light" />
+        android:textColor="@android:color/holo_red_light"
+        android:text="Yash" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -46,7 +48,8 @@
         android:hint="Last Name:"
         android:backgroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light" />
+        android:textColor="@android:color/holo_red_light"
+        android:text="Jain" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -59,7 +62,8 @@
         android:hint="Email:"
         android:backgroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light" />
+        android:textColor="@android:color/holo_red_light"
+        android:text="yashjain_dx@hotmail.com" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -73,7 +77,8 @@
         android:backgroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
         android:textColor="@android:color/holo_red_light"
-        android:maxLength="10" />
+        android:maxLength="10"
+        android:text="8572078929" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -86,7 +91,8 @@
         android:hint="Password:"
         android:backgroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light" />
+        android:textColor="@android:color/holo_red_light"
+        android:text="Rmadrid_1" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -99,7 +105,8 @@
         android:hint="Re-enter password:"
         android:textColor="@color/colorAccent"
         android:textColorHint="?android:attr/colorActivatedHighlight"
-        android:backgroundTint="@color/colorAccent" />
+        android:backgroundTint="@color/colorAccent"
+        android:text="Rmadrid_1" />
 
     <Button
         android:text="Sign Up"
