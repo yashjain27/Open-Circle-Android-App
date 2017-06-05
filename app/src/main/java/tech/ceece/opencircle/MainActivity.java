@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.onstart_layout);
         mAuth = FirebaseAuth.getInstance();
+        startActivity(new Intent(this, MapsActivity.class));
     }
 
     @Override
@@ -26,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(new Intent(this, Login.class));
             finish();
         }else {
-            startActivity(new Intent(this, Test.class));
+            startActivity(new Intent(this, UserActivity.class));
             finish();
         }
     }

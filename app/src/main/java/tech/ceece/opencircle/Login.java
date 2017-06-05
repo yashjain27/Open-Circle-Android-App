@@ -33,7 +33,6 @@ public class Login extends AppCompatActivity {
         editText = (EditText) findViewById(R.id.editText7);
         editText2 = (EditText) findViewById(R.id.editText8);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
-        intent = new Intent(this, Test.class);
         myPrefs = getSharedPreferences("MyPrefsFile", 0).edit();
 
         //See if user chose to let the app remember his/her login account
@@ -52,7 +51,7 @@ public class Login extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null)
-            startActivity(new Intent(this, Test.class));
+            startActivity(new Intent(this, UserActivity.class));
     }
 
     //Sign Up button
@@ -63,7 +62,7 @@ public class Login extends AppCompatActivity {
 
     //Login button
     public void onLogin(View v){
-        intent = new Intent(this, Test.class);
+        intent = new Intent(this, UserActivity.class);
 
         if(checkBox.isChecked()){
             myPrefs.putString("username", editText.getText().toString());
@@ -74,9 +73,15 @@ public class Login extends AppCompatActivity {
             myPrefs.putBoolean("saved", false);
             myPrefs.apply();
         }
-        startActivity(intent);
-        finish();
 
+        if(!editText.getText().toString().isEmpty() && !editText2.getText().toString().isEmpty()) {
+            login(editText.getText().toString(), editText2.getText().toString());
+        }else{
+            Toast.makeText(this, "Please enter email/password", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void login(String email, String password){
         mAuth.signInWithEmailAndPassword(editText.getText().toString(), editText2.getText().toString())
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -84,6 +89,7 @@ public class Login extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             startActivity(intent);
+                            finish();
                         } else {
                             Toast.makeText(Login.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                         }

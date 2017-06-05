@@ -41,9 +41,6 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.user_activity);
         loginIntent = new Intent(this, Login.class);
 
-        //Textview
-        final TextView textView = (TextView) findViewById(R.id.textView2);
-
         //Toolbar
         toolbar = (Toolbar) findViewById(R.id.app_bar);
         setSupportActionBar(toolbar);
@@ -60,16 +57,6 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 account = dataSnapshot.getValue(Account.class);
-                if(account == null){
-                    return;
-                }
-                String accountInfo = account.getEmail() + "\n";
-                accountInfo += account.getUserName() + "\n";
-                accountInfo += account.getFullName() + "\n";
-                accountInfo += account.getPhoneNumber() + "\n";
-                accountInfo += account.getAdmin() + "\n";
-                accountInfo += account.getBanned() + "\n";
-                textView.setText(accountInfo);
             }
 
             @Override
@@ -123,6 +110,9 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
             case R.id.logout:
                 logout();
                 return true;
+            case R.id.information:
+                info();
+                return true;
         }
         return false;
     }
@@ -141,12 +131,16 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+        LatLng sydney = new LatLng(40, -74);
+        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in NYC"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
     }
 
     //Methods
+
+    /**
+     * Deletes the user
+     */
     public void delete(){
         mDatabase.setValue(null);
         user.delete()
@@ -165,10 +159,26 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
+    /**
+     * Logs the user out
+     */
     public void logout() {
         Toast.makeText(this, "Successfully logged out!", Toast.LENGTH_SHORT).show();
         FirebaseAuth.getInstance().signOut();
         finish();
         startActivity(loginIntent);
+    }
+
+    /**
+     * Displays info about the user
+     */
+    public void info(){
+        String accountInfo = account.getEmail() + "\n";
+        accountInfo += account.getUserName() + "\n";
+        accountInfo += account.getFullName() + "\n";
+        accountInfo += account.getPhoneNumber() + "\n";
+        accountInfo += account.getAdmin() + "\n";
+        accountInfo += account.getBanned() + "\n";
+        Toast.makeText(this, "" + accountInfo, Toast.LENGTH_SHORT).show();
     }
 }
