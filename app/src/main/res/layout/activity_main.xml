@@ -29,10 +29,19 @@
         android:layout_height="wrap_content"
         android:id="@+id/button3"
         android:backgroundTint="@color/colorAccent"
-        android:layout_marginTop="38dp"
-        android:layout_below="@+id/button2"
+        android:onClick="onSignUp"
+        android:layout_below="@+id/textView"
         android:layout_alignStart="@+id/button2"
-        android:onClick="onSignUp" />
+        android:layout_marginTop="11dp" />
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_marginBottom="16dp"
+        android:layout_toStartOf="@+id/button3"
+        android:onClick="onGoogleSignIn" />
 
     <TextView
         android:text="Or Sign Up if you are new!"
@@ -40,7 +49,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/button2"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="75dp"
         android:id="@+id/textView"
         android:textColor="?android:attr/colorFocusedHighlight" />
 
@@ -84,4 +93,14 @@
         android:textColor="@color/colorAccent"
         android:layout_above="@+id/button2"
         android:layout_alignStart="@+id/editText7" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/google_signin"
+        android:layout_centerHorizontal="true"
+        android:text="Quickly connect with"
+        android:textColor="?android:attr/colorActivatedHighlight" />
+
 </RelativeLayout>
