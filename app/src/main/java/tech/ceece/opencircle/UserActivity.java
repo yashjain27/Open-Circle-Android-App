@@ -349,6 +349,9 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
         if(myMark != null)
             return;
 
+        if(mLastLocation == null)
+            return;
+
         // Add a marker in NYC and move the camera
         myMark = mMap.addMarker(new MarkerOptions().position(new LatLng(mLastLocation.getLatitude(),
                 mLastLocation.getLongitude())).title(account.getUserName())
