@@ -36,6 +36,15 @@
         android:layout_alignStart="@+id/button2"
         android:onClick="onSignUp" />
 
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/google_signin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView"
+        android:layout_marginBottom="16dp"
+        android:layout_toStartOf="@+id/button3"
+        android:onClick="onGoogleSignIn" />
+
     <TextView
         android:text="Or join the family!"
         android:layout_width="wrap_content"
@@ -72,8 +81,8 @@
         android:layout_toEndOf="@+id/button2"
         android:id="@+id/checkBox"
         android:background="@android:color/transparent"
-        android:backgroundTint="@android:color/transparent"
-        android:textColorHighlight="@android:color/transparent" />
+        android:textColor="@color/cast_expanded_controller_background_color"
+        android:backgroundTint="@android:color/transparent"/>
 
     <EditText
         android:layout_width="300dp"
@@ -85,5 +94,5 @@
         android:layout_above="@+id/button2"
         android:layout_alignStart="@+id/editText7"
         android:background="@drawable/background_template"
-        android:textColor="@color/cast_expanded_controller_progress_text_color" />/>
+        android:textColor="@color/cast_expanded_controller_progress_text_color" />
 </RelativeLayout>
