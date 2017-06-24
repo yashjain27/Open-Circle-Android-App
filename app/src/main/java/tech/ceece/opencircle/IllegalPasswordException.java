@@ -7,11 +7,8 @@ package tech.ceece.opencircle;
  */
 public class IllegalPasswordException extends Exception{
     /**
-     * Constructor for the IllegalPasswordException.
-     * @param message
-     *      A message indicating what the error is
+     * Constructor for the IllegalPasswordException
      */
-    public IllegalPasswordException(String message){
-        super(message);
+    public IllegalPasswordException(){
     }
 }

@@ -91,22 +91,7 @@
         android:hint="Password:"
         android:backgroundTint="@color/colorAccent"
         android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light"
-        android:text="Rmadrid_1" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/editText6"
-        android:layout_alignStart="@+id/editText6"
-        android:id="@+id/editText9"
-        android:hint="Re-enter password:"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="?android:attr/colorActivatedHighlight"
-        android:backgroundTint="@color/colorAccent"
-        android:text="Rmadrid_1" />
+        android:textColor="@android:color/holo_red_light" />
 
     <Button
         android:text="Sign Up"
@@ -118,5 +103,18 @@
         android:onClick="onSignUp"
         android:layout_below="@+id/editText9"
         android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/editText9"
+        android:hint="Re-enter password:"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="?android:attr/colorActivatedHighlight"
+        android:backgroundTint="@color/colorAccent"
+        android:layout_below="@+id/editText6"
+        android:layout_alignStart="@+id/editText6" />
 
 </RelativeLayout>

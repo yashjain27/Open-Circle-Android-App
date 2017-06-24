@@ -32,7 +32,7 @@ public class Password implements Serializable{
         boolean upperCase = false, lowerCase = false, number = false, specialChar = false;
 
         //Check if the password is greater than 6 characters
-        if (initPassword.length() < 6) throw new IllegalPasswordException("Password must be greater than 6 characters.");
+        if (initPassword.length() < 6) throw new IllegalPasswordException();
 
         for(int i = 0; i < initPassword.length(); i++){
             if (initPassword.charAt(i) > 64 && initPassword.charAt(i) < 91)
@@ -49,7 +49,7 @@ public class Password implements Serializable{
                 specialChar = true;
         }
         if(!upperCase || !number || !specialChar || !lowerCase)
-            throw new IllegalArgumentException();
+            throw new IllegalPasswordException();
         else
             password = initPassword;
     }
