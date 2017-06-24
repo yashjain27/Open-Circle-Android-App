@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
+import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -50,6 +51,15 @@ public class Login extends AppCompatActivity {
             editText2.setText(prefs.getString("password", "no password"));
             checkBox.setChecked(true);
         }
+
+        //Google Sign in button
+        SignInButton signInButton = (SignInButton) findViewById(R.id.google_signin);
+        signInButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onGoogleSignIn();
+            }
+        });
     }
 
     @Override
@@ -105,7 +115,7 @@ public class Login extends AppCompatActivity {
                 });
     }
 
-    public void onGoogleSignIn(View v) {
+    private void onGoogleSignIn() {
         Toast.makeText(this, "ghjgjg", Toast.LENGTH_SHORT).show();
         Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
         startActivityForResult(signInIntent, 1);
