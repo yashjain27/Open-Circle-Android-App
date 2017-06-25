@@ -9,7 +9,7 @@
         <item name="android:colorBackground">@color/colorPrimaryDark</item>
         <item name="android:colorButtonNormal">@color/colorAccent</item>
         <item name="android:itemBackground">@android:color/white</item>
-        <item name="android:statusBarColor">#ff0252</item>
+        <item name="android:statusBarColor">#cb5400</item>
 
     </style>
 
