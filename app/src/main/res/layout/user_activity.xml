@@ -17,16 +17,16 @@
         layout="@layout/app_bar"/>
 
     <ImageButton
+        android:id="@+id/imageButton"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        app:srcCompat="@android:drawable/ic_input_add"
-        android:layout_marginEnd="32dp"
-        android:layout_marginBottom="60dp"
-        android:id="@+id/imageButton"
-        android:background="@drawable/oval"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:onClick="onUserOptions" />
+        android:layout_marginBottom="60dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/oval"
+        android:onClick="onUserOptions"
+        app:srcCompat="@drawable/white_plus" />
 
 
 </RelativeLayout>

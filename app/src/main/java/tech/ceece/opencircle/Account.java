@@ -45,6 +45,24 @@ public class Account{
         items = new ArrayList<>();
     }
 
+    /**
+     * Constructor for the Sign-in providers
+     * @param fullName
+     *   a String representing the user's Full Name
+     * @param userName
+     *  a String representing the userName
+     * @param email
+     * a String representing the user's email
+     */
+    public Account(String fullName, String userName, String email){
+        this.userName = userName;
+        this.fullName = fullName;
+        this.email = email;
+        banned = false;
+        admin = false;
+        items = new ArrayList<>();
+    }
+
     //Accessors
     /**
      * Returns the userName associated with this account

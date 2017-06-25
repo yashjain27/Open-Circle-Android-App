@@ -1,120 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:backgroundTint="@color/colorPrimaryDark">
+    android:background="@drawable/gradient_background">
 
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="21dp"
         android:id="@+id/editText"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
+        android:foregroundTint="@color/colorAccent"
         android:hint="Username:"
-        android:backgroundTint="@color/colorAccent"
-        android:foregroundTint="@color/colorAccent"
-        android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light"
-        android:text="yasjain" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editText"
-        android:layout_alignStart="@+id/editText"
-        android:id="@+id/editText2"
-        android:hint="First Name:"
-        android:foregroundTint="@color/colorAccent"
-        android:backgroundTint="@color/colorAccent"
-        android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light"
-        android:text="Yash" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPersonName"
-        android:ems="10"
-        android:layout_below="@+id/editText2"
-        android:layout_alignStart="@+id/editText2"
-        android:id="@+id/editText3"
-        android:hint="Last Name:"
-        android:backgroundTint="@color/colorAccent"
-        android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light"
-        android:text="Jain" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textEmailAddress"
-        android:ems="10"
-        android:layout_below="@+id/editText3"
-        android:layout_alignEnd="@+id/editText3"
-        android:id="@+id/editText4"
-        android:hint="Email:"
-        android:backgroundTint="@color/colorAccent"
-        android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light"
-        android:text="yashjain_dx@hotmail.com" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:ems="10"
-        android:layout_below="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
-        android:id="@+id/editText5"
-        android:hint="Phone Number:"
-        android:backgroundTint="@color/colorAccent"
-        android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light"
-        android:maxLength="10"
-        android:text="8572078929" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
-        android:layout_below="@+id/editText5"
-        android:layout_alignEnd="@+id/editText5"
-        android:id="@+id/editText6"
-        android:hint="Password:"
-        android:backgroundTint="@color/colorAccent"
-        android:textColorHint="?android:attr/colorFocusedHighlight"
-        android:textColor="@android:color/holo_red_light" />
-
-    <Button
-        android:text="Sign Up"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:id="@+id/button"
-        android:backgroundTint="@color/colorAccent"
-        android:onClick="onSignUp"
-        android:layout_below="@+id/editText9"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_above="@+id/editText2"
         android:layout_centerHorizontal="true" />
 
     <EditText
+        android:id="@+id/editText2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
+        android:foregroundTint="@color/colorAccent"
+        android:hint="First Name:"
+        android:inputType="textPersonName"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_above="@+id/editText3"
+        android:layout_alignStart="@+id/editText" />
+
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
+        android:hint="Last Name:"
+        android:inputType="textPersonName"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_above="@+id/editText4"
+        android:layout_alignStart="@+id/editText2" />
+
+    <EditText
+        android:id="@+id/editText4"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
+        android:hint="Email:"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_above="@+id/editText5"
+        android:layout_alignStart="@+id/editText3" />
+
+    <EditText
+        android:id="@+id/editText5"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
+        android:hint="Phone Number:"
+        android:inputType="number"
+        android:maxLength="10"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_above="@+id/editText6"
+        android:layout_alignStart="@+id/editText4" />
+
+    <EditText
+        android:id="@+id/editText6"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
+        android:hint="Password:"
+        android:inputType="textPassword"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_above="@+id/editText9"
+        android:layout_alignStart="@+id/editText5" />
+
+    <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:ems="10"
+        android:background="@drawable/button_template"
+        android:onClick="onSignUp"
+        android:text="Sign Up"
+        android:layout_marginBottom="54dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
         android:id="@+id/editText9"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_template"
+        android:ems="10"
         android:hint="Re-enter password:"
-        android:textColor="@color/colorAccent"
-        android:textColorHint="?android:attr/colorActivatedHighlight"
-        android:backgroundTint="@color/colorAccent"
-        android:layout_below="@+id/editText6"
+        android:inputType="textPassword"
+        android:textColor="@color/cast_expanded_controller_text_color"
+        android:layout_marginBottom="23dp"
+        android:layout_above="@+id/button"
         android:layout_alignStart="@+id/editText6" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text='"Look around, what you desire is near you!"'
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="italic"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        srcCompat="@drawable/logo"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_above="@+id/textView8"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="14dp"
+        app:srcCompat="@drawable/logo" />
 
 </RelativeLayout>
