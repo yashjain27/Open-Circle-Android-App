@@ -35,7 +35,7 @@ public class Account{
      * @param phoneNumber
      *      an int indicating the user's phone number
      */
-    public Account(String userName, String fullName, String email, String phoneNumber){
+    public Account(String userName, String fullName, String email, String phoneNumber) {
         this.userName = userName;
         this.fullName = fullName;
         this.email = email;
