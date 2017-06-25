@@ -103,7 +103,11 @@ public class UserActivity extends AppCompatActivity implements OnMapReadyCallbac
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                account = dataSnapshot.getValue(Account.class);
+                try {
+                    account = dataSnapshot.getValue(Account.class);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override
