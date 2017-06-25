@@ -2,6 +2,7 @@ package tech.ceece.opencircle;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -24,6 +25,12 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserInfo;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class Login extends AppCompatActivity implements GoogleApiClient.OnConnectionFailedListener {
     //Data fields
@@ -33,6 +40,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
     private EditText editText2;
     private CheckBox checkBox;
     private GoogleApiClient mGoogleApiClient;
+    private DatabaseReference mDatabase;
     SharedPreferences.Editor myPrefs;
 
     @Override
@@ -44,6 +52,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         editText2 = (EditText) findViewById(R.id.editText8);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         myPrefs = getSharedPreferences("MyPrefsFile", 0).edit();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         //See if user chose to let the app remember his/her login account
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", 0);
@@ -66,6 +75,7 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
 
@@ -147,13 +157,11 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
             if (result.isSuccess()) {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = result.getSignInAccount();
-                Toast.makeText(this, "hey", Toast.LENGTH_SHORT).show();
                 firebaseAuthWithGoogle(account);
 
             } else {
                 // Google Sign In failed, update UI appropriately
                 // ...
-                Toast.makeText(this, "dfsdfsd", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -168,6 +176,44 @@ public class Login extends AppCompatActivity implements GoogleApiClient.OnConnec
                         if (task.isSuccessful()) {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
+                            Account account = null;
+                            for (UserInfo profile : user.getProviderData()) {
+                                // Id of the provider (ex: google.com)
+                                String providerId = profile.getProviderId();
+
+                                // UID specific to the provider
+                                String uid = profile.getUid();
+
+                                // Name, email address, and profile photo Url
+                                String name = profile.getDisplayName();
+                                String email = profile.getEmail();
+
+                                if(email == null)
+                                    break;
+
+                                //finding index of "@" to remove it from email and make a username
+                                int atChar = email.indexOf("@");
+                                String userName = profile.getEmail().substring(0, atChar);
+                                account = new Account(name, userName, email);
+
+                            };
+
+                            //check whether key exists
+                            final String id = user.getUid();
+                            final Account finalAccount = account;
+                            mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(DataSnapshot snapshot) {
+                                    if (!snapshot.hasChild(id)) {
+                                        mDatabase.child(id).setValue(finalAccount);
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(DatabaseError databaseError) {
+
+                                }
+                            });
                             startActivity(intent);
                             finish();
                         } else {
