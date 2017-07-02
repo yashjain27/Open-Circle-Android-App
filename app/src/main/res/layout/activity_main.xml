@@ -125,4 +125,13 @@
         android:text='"Look around, what you desire is near you!"'
         android:textSize="20sp"
         android:textStyle="italic" />
+
+    <com.facebook.login.widget.LoginButton
+        android:id="@+id/login_button"
+        android:layout_width="175dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_alignBottom="@+id/google_signin"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp" />
 </RelativeLayout>
